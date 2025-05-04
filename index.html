@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Mother's Day</title>
   <style>
     * {
@@ -10,10 +10,12 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
     }
+
     .screen {
       width: 100vw;
       height: 100vh;
@@ -26,19 +28,23 @@
       transition: all 0.6s ease;
       position: relative;
     }
+
     .dice {
       font-size: 5rem;
       cursor: pointer;
       animation: bounce 1s infinite;
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
     .message {
       font-size: 1.5rem;
       margin-top: 20px;
     }
+
     .button {
       margin-top: 30px;
       padding: 12px 24px;
@@ -50,28 +56,33 @@
       font-size: 1.2rem;
       transition: background 0.3s;
     }
+
     .button:hover {
       background-color: #ff85c1;
     }
+
     .cute {
       background: linear-gradient(#ffd9ec, #ffe6f7);
       color: #4b2c20;
       position: relative;
       overflow: hidden;
     }
+
     .footer {
       position: absolute;
       bottom: 10px;
       right: 10px;
       font-size: 1.2rem;
-      color: #888;
+      color: #ff69b4;
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .footer img {
-      width: 24px;
-      height: 24px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
     }
 
     video.video-background {
@@ -88,33 +99,43 @@
     @keyframes floatHearts {
       0% {
         transform: translateY(0) scale(1);
-        opacity: 1;
       }
       100% {
         transform: translateY(-100vh) scale(1.5);
-        opacity: 0;
       }
     }
+
     .hearts {
       position: absolute;
-      top: 80%;
+      top: 10%;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: red;
-      animation: floatHearts 6s infinite linear;
+      animation: floatHearts 5s linear infinite;
     }
 
-    /* Slowed and Paused Animation for Photos */
+    /* Floating Bubble-like Animation for Photos */
+    @keyframes bubbleFloat {
+      0% {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-30px) translateX(15px) scale(1.05);
+      }
+      100% {
+        transform: translateY(0px) translateX(-15px) scale(1);
+      }
+    }
+
     .photo-container {
       position: absolute;
       bottom: 100px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       width: 100%;
       gap: 20px;
-      animation: floatHearts 20s forwards;
-      animation-play-state: paused; /* Animation is paused */
+      display: none;
     }
 
     .photo-container img {
@@ -122,10 +143,7 @@
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-    }
-
-    .photo-container {
-      display: none; /* Hidden by default */
+      animation: bubbleFloat 6s ease-in-out infinite;
     }
   </style>
 </head>
@@ -138,7 +156,10 @@
   <div class="screen" id="screen1">
     <div class="dice" id="dice">🎲</div>
     <div class="message" id="message1">Click on the dice or roll the dice by clicking!</div>
-    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
+    <div class="footer">
+      <span>💖 Made by your coder girl — Silppi 🐱</span>
+      <img src="cat.jpg" alt="Cute Cat" />
+    </div>
   </div>
 
   <div class="screen cute" id="screen2" style="display: none;">
@@ -147,7 +168,10 @@
       And this smart daughter wishes you.<br /><br />
       <button class="button" onclick="goToCute()">Click Here</button>
     </div>
-    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
+    <div class="footer">
+      <span>💖 Made by your coder girl — Silppi 🐱</span>
+      <img src="cat.jpg" alt="Cute Cat" />
+    </div>
   </div>
 
   <div class="screen cute" id="screen3" style="display: none;">
@@ -157,17 +181,18 @@
       Thank you for everything. I love you.<br /><br />
     </div>
 
-    <!-- Floating Hearts -->
     <div class="hearts">❤️❤️❤️</div>
 
-    <!-- Photo container with images -->
     <div class="photo-container">
       <img src="photo1.jpg" alt="Mother's Day Photo 1" />
       <img src="photo2.jpg" alt="Mother's Day Photo 2" />
       <img src="photo3.jpg" alt="Mother's Day Photo 3" />
     </div>
 
-    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
+    <div class="footer">
+      <span>💖 Made by your coder girl — Silppi 🐱</span>
+      <img src="cat.jpg" alt="Cute Cat" />
+    </div>
   </div>
 
   <script>
@@ -189,7 +214,7 @@
     function goToCute() {
       screen2.style.display = 'none';
       screen3.style.display = 'flex';
-      photoContainer.style.display = 'flex'; // Show photos
+      photoContainer.style.display = 'flex';
     }
   </script>
 </body>
