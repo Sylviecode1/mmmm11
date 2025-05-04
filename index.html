@@ -63,17 +63,17 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      font-size: 1.1rem; /* Made it slightly bigger */
+      font-size: 1.2rem;
       color: #888;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     .footer img {
-      width: 30px; /* Cat emoji */
-      height: 30px;
-      border-radius: 50%;
+      width: 24px;
+      height: 24px;
     }
+
     video.video-background {
       position: absolute;
       top: 0;
@@ -83,24 +83,29 @@
       object-fit: cover;
       z-index: -1;
     }
+
     /* Floating Hearts Animation */
     @keyframes floatHearts {
       0% {
         transform: translateY(0) scale(1);
+        opacity: 1;
       }
       100% {
-        transform: translateY(-150vh) scale(1.5);
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
       }
     }
     .hearts {
       position: absolute;
-      top: 10%;
+      top: 80%;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: red;
-      animation: floatHearts 10s infinite; /* Slower floating hearts */
+      animation: floatHearts 6s infinite linear;
     }
+
+    /* Slowed and Paused Animation for Photos */
     .photo-container {
       position: absolute;
       bottom: 100px;
@@ -108,16 +113,19 @@
       justify-content: space-around;
       width: 100%;
       gap: 20px;
-      animation: floatHearts 15s infinite; /* Slower photo animation */
+      animation: floatHearts 20s forwards;
+      animation-play-state: paused; /* Animation is paused */
     }
+
     .photo-container img {
       width: 200px;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .photo-container {
-      display: none;
+      display: none; /* Hidden by default */
     }
   </style>
 </head>
@@ -130,10 +138,7 @@
   <div class="screen" id="screen1">
     <div class="dice" id="dice">🎲</div>
     <div class="message" id="message1">Click on the dice or roll the dice by clicking!</div>
-    <div class="footer">
-      <span>Made by your coder girl — Silppi 🧑‍💻</span>
-      <img src="cat-photo.jpg" alt="Cute Cat" /> <!-- Add your cat image path here -->
-    </div>
+    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
   </div>
 
   <div class="screen cute" id="screen2" style="display: none;">
@@ -142,10 +147,7 @@
       And this smart daughter wishes you.<br /><br />
       <button class="button" onclick="goToCute()">Click Here</button>
     </div>
-    <div class="footer">
-      <span>Made by your coder girl — Silppi 🧑‍💻</span>
-      <img src="cat-photo.jpg" alt="Cute Cat" />
-    </div>
+    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
   </div>
 
   <div class="screen cute" id="screen3" style="display: none;">
@@ -155,20 +157,17 @@
       Thank you for everything. I love you.<br /><br />
     </div>
 
-    <!-- Floating Hearts Effect -->
+    <!-- Floating Hearts -->
     <div class="hearts">❤️❤️❤️</div>
 
-    <!-- Photo container with images at the bottom (visible only on the last screen) -->
+    <!-- Photo container with images -->
     <div class="photo-container">
       <img src="photo1.jpg" alt="Mother's Day Photo 1" />
       <img src="photo2.jpg" alt="Mother's Day Photo 2" />
       <img src="photo3.jpg" alt="Mother's Day Photo 3" />
     </div>
 
-    <div class="footer">
-      <span>Made by your coder girl — Silppi 🧑‍💻</span>
-      <img src="cat-photo.jpg" alt="Cute Cat" />
-    </div>
+    <div class="footer">🌸 Made by your coder girl — Silppi <img src="cat.png" alt="Cute Cat" /></div>
   </div>
 
   <script>
@@ -190,9 +189,7 @@
     function goToCute() {
       screen2.style.display = 'none';
       screen3.style.display = 'flex';
-
-      // Show the images only on the last screen
-      photoContainer.style.display = 'flex';
+      photoContainer.style.display = 'flex'; // Show photos
     }
   </script>
 </body>
