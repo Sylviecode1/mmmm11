@@ -63,8 +63,16 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      font-size: 0.9rem;
+      font-size: 1.1rem; /* Made it slightly bigger */
       color: #888;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer img {
+      width: 30px; /* Cat emoji */
+      height: 30px;
+      border-radius: 50%;
     }
     video.video-background {
       position: absolute;
@@ -81,7 +89,7 @@
         transform: translateY(0) scale(1);
       }
       100% {
-        transform: translateY(-100vh) scale(1.5);
+        transform: translateY(-150vh) scale(1.5);
       }
     }
     .hearts {
@@ -91,25 +99,25 @@
       transform: translateX(-50%);
       font-size: 3rem;
       color: red;
-      animation: floatHearts 5s infinite;
+      animation: floatHearts 10s infinite; /* Slower floating hearts */
     }
     .photo-container {
       position: absolute;
-      bottom: 100px; /* Raise the images slightly above the bottom */
+      bottom: 100px;
       display: flex;
       justify-content: space-around;
       width: 100%;
       gap: 20px;
-      animation: floatHearts 5s infinite;
+      animation: floatHearts 15s infinite; /* Slower photo animation */
     }
     .photo-container img {
-      width: 200px; /* Make images larger */
+      width: 200px;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
     }
     .photo-container {
-      display: none; /* Hide images initially */
+      display: none;
     }
   </style>
 </head>
@@ -122,7 +130,10 @@
   <div class="screen" id="screen1">
     <div class="dice" id="dice">🎲</div>
     <div class="message" id="message1">Click on the dice or roll the dice by clicking!</div>
-    <div class="footer">Made by your coder girl — Silppi</div>
+    <div class="footer">
+      <span>Made by your coder girl — Silppi 🧑‍💻</span>
+      <img src="cat-photo.jpg" alt="Cute Cat" /> <!-- Add your cat image path here -->
+    </div>
   </div>
 
   <div class="screen cute" id="screen2" style="display: none;">
@@ -131,7 +142,10 @@
       And this smart daughter wishes you.<br /><br />
       <button class="button" onclick="goToCute()">Click Here</button>
     </div>
-    <div class="footer">Made by your coder girl — Silppi</div>
+    <div class="footer">
+      <span>Made by your coder girl — Silppi 🧑‍💻</span>
+      <img src="cat-photo.jpg" alt="Cute Cat" />
+    </div>
   </div>
 
   <div class="screen cute" id="screen3" style="display: none;">
@@ -151,7 +165,10 @@
       <img src="photo3.jpg" alt="Mother's Day Photo 3" />
     </div>
 
-    <div class="footer">Made by your coder girl — Silppi</div>
+    <div class="footer">
+      <span>Made by your coder girl — Silppi 🧑‍💻</span>
+      <img src="cat-photo.jpg" alt="Cute Cat" />
+    </div>
   </div>
 
   <script>
@@ -160,7 +177,7 @@
     const screen1 = document.getElementById('screen1');
     const screen2 = document.getElementById('screen2');
     const screen3 = document.getElementById('screen3');
-    const photoContainer = document.querySelector('.photo-container'); // photo container element
+    const photoContainer = document.querySelector('.photo-container');
 
     dice.addEventListener('click', () => {
       message1.innerText = 'Rolling...';
